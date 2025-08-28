@@ -1,0 +1,6 @@
+{ lib
+, ...
+}:
+{
+  options.laurelin = { };
+}
