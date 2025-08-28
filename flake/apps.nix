@@ -1,6 +1,10 @@
 _: {
   perSystem =
-    { pkgs, lib, ... }:
+    {
+      pkgs,
+      lib,
+      ...
+    }:
     {
       apps = {
         update-all = {
