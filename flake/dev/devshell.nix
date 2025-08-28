@@ -14,6 +14,7 @@
           nixfmt
           statix
           python3
+          nixpkgs-fmt
           (pkgs.writeShellScriptBin "new-plugin" ''
             if [ $# -ne 2 ]; then
               echo "Usage: new-plugin <plugin-name> <template-type>"
