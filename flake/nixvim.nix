@@ -22,7 +22,7 @@
     }:
     {
       nixvimConfigurations = {
-        telperion = inputs.nixvim.lib.evalNixvim {
+        laurelin = inputs.nixvim.lib.evalNixvim {
           inherit system;
 
           extraSpecialArgs = {
