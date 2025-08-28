@@ -17,9 +17,7 @@
   };
 
   perSystem =
-    { system
-    , ...
-    }:
+    { system, ... }:
     {
       nixvimConfigurations = {
         laurelin = inputs.nixvim.lib.evalNixvim {

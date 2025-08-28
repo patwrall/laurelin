@@ -1,6 +1,3 @@
-{ lib
-, ...
-}:
-{
+_: {
   options.laurelin = { };
 }

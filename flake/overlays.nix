@@ -1,7 +1,6 @@
-{
-  inputs,
-  lib,
-  ...
+{ inputs
+, lib
+, ...
 }:
 let
   overlayFiles =
@@ -14,9 +13,11 @@ let
 in
 {
   flake.overlays = lib.listToAttrs (
-    map (filename: {
-      name = lib.removeSuffix ".nix" filename;
-      value = import (../overlays + "/${filename}") { flake = inputs.self; };
-    }) overlayFiles
+    map
+      (filename: {
+        name = lib.removeSuffix ".nix" filename;
+        value = import (../overlays + "/${filename}") { flake = inputs.self; };
+      })
+      overlayFiles
   );
 }

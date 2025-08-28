@@ -10,9 +10,7 @@
     inputs.pkgs-by-name-for-flake-parts.flakeModule;
 
   perSystem =
-    { lib
-    , ...
-    }:
+    { lib, ... }:
     lib.optionalAttrs (inputs.pkgs-by-name-for-flake-parts ? flakeModule) {
       pkgsDirectory = ../packages;
     };

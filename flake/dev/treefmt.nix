@@ -45,7 +45,7 @@
           keep-sorted.enable = true;
           nixfmt = {
             enable = true;
-            package = pkgs.nixfmt;
+            package = pkgs.nixpkgs-fmt;
           };
           # FIXME: removed???
           # nufmt.enable = true;
