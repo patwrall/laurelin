@@ -1,0 +1,1 @@
+# Laurelin NixVim Config
