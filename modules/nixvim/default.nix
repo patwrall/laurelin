@@ -9,12 +9,17 @@ let
   by-name = ./plugins;
 in
 {
-  imports = foldlAttrs
-    (
-      prev: name: type:
-        prev ++ optional (type == "directory") (by-name + "/${name}")
-    ) [ ]
-    (readDir by-name);
+  imports =
+    (foldlAttrs
+      (
+        prev: name: type:
+          prev ++ optional (type == "directory") (by-name + "/${name}")
+      ) [ ]
+      (readDir by-name))
+    ++
+    [
+      ./options.nix
+    ];
 
   nixpkgs = {
     overlays = lib.attrValues self.overlays;
