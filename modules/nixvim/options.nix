@@ -14,6 +14,10 @@
     };
   };
 
+  colorscheme = "catppuccin";
+  colorschemes.catppuccin.enable = true;
+  luaLoader.enable = true;
+
   globals = {
     loaded_ruby_provider = 0;
     loaded_perl_provider = 0;
