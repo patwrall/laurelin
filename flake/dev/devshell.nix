@@ -21,7 +21,7 @@
               echo "Template types: custom, custom-lazy, nixvim"
               exit 1
             fi
-            ${./new-plugin.py} "$1" "$2"
+            python3 ${./new-plugin.py} "$1" "$2"
           '')
         ];
 
