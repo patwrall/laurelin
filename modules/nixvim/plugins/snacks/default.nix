@@ -2,6 +2,9 @@
 , pkgs
 , ...
 }: {
+  imports = [
+    ./lazygit.nix
+  ];
 
   extraPackages = with pkgs; [
     ghostscript
