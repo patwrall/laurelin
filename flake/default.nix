@@ -8,6 +8,7 @@
     ./apps.nix
     ./nixvim.nix
     ./overlays.nix
+    ./pkgs-by-name.nix
     inputs.flake-parts.flakeModules.partitions
   ];
 
