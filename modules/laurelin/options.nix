@@ -22,6 +22,15 @@
         default = "grug-far";
         description = "Search and replace plugin to use";
       };
+
+      commandlineUI = lib.mkOption {
+        type = lib.types.enum [
+          "noice"
+          "none"
+        ];
+        default = "noice";
+        description = "Command line UI enhancement to use";
+      };
     };
   };
 }
