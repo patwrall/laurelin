@@ -3,7 +3,10 @@
 , ...
 }: {
   imports = [
+    # keep-sorted start block=yes newline_separated=no
+    ./bufdelete.nix
     ./lazygit.nix
+    # keep-sorted end
   ];
 
   extraPackages = with pkgs; [

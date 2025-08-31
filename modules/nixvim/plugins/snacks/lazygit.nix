@@ -23,9 +23,7 @@
           mode = "n";
           key = "<leader>gg";
           action = "<cmd>lua Snacks.lazygit()<CR>";
-          options = {
-            desc = "Open Lazygit";
-          };
+          options.desc = "Open Lazygit";
         }
       ];
 }
