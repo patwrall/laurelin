@@ -12,5 +12,16 @@
         description = "Plugin loading strategy";
       };
     };
+
+    editor = {
+      searchPlugin = lib.mkOption {
+        type = lib.types.enum [
+          "grug-far"
+          "none"
+        ];
+        default = "grug-far";
+        description = "Search and replace plugin to use";
+      };
+    };
   };
 }
