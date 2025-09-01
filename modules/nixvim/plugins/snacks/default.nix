@@ -6,6 +6,7 @@
     # keep-sorted start block=yes newline_separated=no
     ./bufdelete.nix
     ./explorer.nix
+    ./gitbrowse.nix
     ./lazygit.nix
     ./picker.nix
     ./profiler.nix
