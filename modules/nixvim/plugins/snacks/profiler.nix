@@ -12,8 +12,6 @@
         && config.plugins.snacks.settings.profiler.enabled
       )
       (
-        # NOTE: Allows profiling
-        # `PROF=1 nvim`
         lib.mkOrder 1 # Lua
           ''
             if vim.env.PROF then
@@ -21,9 +19,7 @@
               vim.opt.rtp:append(snacks)
               require("snacks.profiler").startup({
                 startup = {
-                  -- event = "VimEnter", -- stop profiler on this event. Defaults to `VimEnter`
                   event = "UIEnter",
-                  -- event = "VeryLazy",
                 },
               })
             end

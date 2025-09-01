@@ -194,6 +194,9 @@
           pick = source: { action.__raw = "function() laurelin.pick('${source}')() end"; };
           pickOpts = source: opts: { action.__raw = "function() laurelin.pick('${source}', ${opts})() end"; };
           pickFn = fn: { action.__raw = "function() laurelin.pick.${fn}() end"; };
+          pWithArgs = picker: args: {
+            action.__raw = "function() require('snacks').picker.${picker}(${lib.generators.toLua {} args}) end";
+          };
         };
       in
       [
@@ -226,6 +229,14 @@
         ({ mode = "n"; key = "<leader>sG"; options.desc = "Grep (cwd)"; } // helpers.pickOpts "live_grep" "{ root = false }")
         ({ mode = [ "n" "x" ]; key = "<leader>sw"; options.desc = "Visual selection or word (Root Dir)"; } // helpers.pick "grep_word")
         ({ mode = [ "n" "x" ]; key = "<leader>sW"; options.desc = "Visual selection or word (cwd)"; } // helpers.pickOpts "grep_word" "{ root = false }")
+        ({ mode = "n"; key = "<leader>st"; options.desc = "TODOs"; } // helpers.p "todo_comments()")
+        ({
+          mode = "n";
+          key = "<leader>sT";
+          options.desc = "TODOs/FIXs/FIXMEs";
+        } // helpers.pWithArgs "todo_comments" {
+          keywords = [ "TODO" "FIX" "FIXME" ];
+        })
 
         # Search group
         ({ mode = "n"; key = "<leader>s\""; options.desc = "Registers"; } // helpers.p "registers()")
