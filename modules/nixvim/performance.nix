@@ -16,8 +16,12 @@
       enable = true;
 
       standalonePlugins = with pkgs.vimPlugins; [
+        "firenvim"
+        "neotest"
+        "nvim-treesitter"
         mini-nvim
         overseer-nvim
+        vs-tasks-nvim
       ];
     };
   };
