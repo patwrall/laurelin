@@ -2,6 +2,21 @@
 , ...
 }: {
   options.laurelin = {
+    ai = {
+      provider = lib.mkOption {
+        type = lib.types.enum [
+          "copilot"
+          "none"
+        ];
+        default = "copilot";
+        description = "AI completion provider to use";
+      };
+
+      chatEnable = lib.mkEnableOption "AI chat functionality" // {
+        default = true;
+      };
+    };
+
     completion = {
       engine = lib.mkOption {
         type = lib.types.enum [
