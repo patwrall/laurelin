@@ -21,6 +21,7 @@ in
     ../laurelin/options.nix
     ./keymaps.nix
     ./options.nix
+    ./performance.nix
     # keep-sorted end
   ];
 

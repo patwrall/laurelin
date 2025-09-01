@@ -4,6 +4,7 @@
 }: {
   imports = [
     # keep-sorted start block=yes newline_separated=no
+    ./bigfile.nix
     ./bufdelete.nix
     ./explorer.nix
     ./gitbrowse.nix
