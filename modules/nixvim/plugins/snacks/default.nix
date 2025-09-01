@@ -5,6 +5,7 @@
   imports = [
     # keep-sorted start block=yes newline_separated=no
     ./bufdelete.nix
+    ./explorer.nix
     ./lazygit.nix
     ./picker.nix
     ./profiler.nix
