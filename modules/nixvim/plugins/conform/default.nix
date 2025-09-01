@@ -166,7 +166,7 @@
           jq.command = lib.getExe pkgs.jq;
           kdlfmt.command = lib.getExe pkgs.kdlfmt;
           kulala-fmt.command = lib.getExe pkgs.kulala-fmt;
-          nixfmt.command = lib.getExe pkgs.nixfmt;
+          nixfmt.command = lib.getExe pkgs.nixpkgs-fmt;
           prettierd.command = lib.getExe pkgs.prettierd;
           ruff.command = lib.getExe pkgs.ruff;
           rustfmt.command = lib.getExe pkgs.rustfmt;
