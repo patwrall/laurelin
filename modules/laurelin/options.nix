@@ -69,7 +69,7 @@
           "mini-files"
           "none"
         ];
-        default = "mini-files";
+        default = "yazi";
         description = "File manager plugin to use";
       };
 

@@ -20,6 +20,7 @@ in
     # keep-sorted start
     ../laurelin/options.nix
     ./keymaps.nix
+    ./lsp.nix
     ./options.nix
     ./performance.nix
     # keep-sorted end
