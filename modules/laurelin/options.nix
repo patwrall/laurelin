@@ -2,6 +2,17 @@
 , ...
 }: {
   options.laurelin = {
+    completion = {
+      engine = lib.mkOption {
+        type = lib.types.enum [
+          "blink"
+          "none"
+        ];
+        default = "blink";
+        description = "Completion engine to use";
+      };
+    };
+
     loading = {
       strategy = lib.mkOption {
         type = lib.types.enum [
@@ -58,8 +69,26 @@
           "mini-files"
           "none"
         ];
-        default = "yazi";
+        default = "mini-files";
         description = "File manager plugin to use";
+      };
+
+      diffViewer = lib.mkOption {
+        type = lib.types.enum [
+          "mini-diff"
+          "none"
+        ];
+        default = "mini-diff";
+        description = "Diff viewer plugin to use";
+      };
+
+      snippetEngine = lib.mkOption {
+        type = lib.types.enum [
+          "mini-snippets"
+          "none"
+        ];
+        default = "mini-snippets";
+        description = "Snippet engine to use";
       };
 
       commandlineUI = lib.mkOption {
