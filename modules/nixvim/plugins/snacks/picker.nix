@@ -3,11 +3,8 @@
 , pkgs
 , ...
 }:
-lib.mkIf (config.laurelin.picker.engine == "snacks") {
-  imports = [
-    ./picker/lsp.nix
-  ];
-
+lib.mkIf (config.laurelin.picker.engine == "snacks") (lib.recursiveUpdate
+{
   extraPlugins = with pkgs.vimPlugins; [
     snacks-nvim
     lazy-nvim
@@ -250,3 +247,7 @@ lib.mkIf (config.laurelin.picker.engine == "snacks") {
       ({ mode = "n"; key = "<leader>uC"; options.desc = "Colorschemes"; } // helpers.p "colorschemes()")
     ];
 }
+  (
+    import ./picker/lsp.nix { inherit config lib pkgs; }
+  )
+)
