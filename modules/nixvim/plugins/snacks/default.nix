@@ -6,6 +6,7 @@
     # keep-sorted start block=yes newline_separated=no
     ./bufdelete.nix
     ./lazygit.nix
+    ./picker.nix
     # keep-sorted end
   ];
 

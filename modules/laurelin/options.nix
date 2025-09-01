@@ -13,6 +13,17 @@
       };
     };
 
+    picker = {
+      engine = lib.mkOption {
+        type = lib.types.enum [
+          "snacks"
+          "none"
+        ];
+        default = "snacks";
+        description = "Picker engine to use";
+      };
+    };
+
     editor = {
       searchPlugin = lib.mkOption {
         type = lib.types.enum [
