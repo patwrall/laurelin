@@ -7,6 +7,7 @@
     ./bufdelete.nix
     ./lazygit.nix
     ./picker.nix
+    ./profiler.nix
     # keep-sorted end
   ];
 
