@@ -52,6 +52,16 @@
         description = "Search and replace plugin to use";
       };
 
+      fileManager = lib.mkOption {
+        type = lib.types.enum [
+          "yazi"
+          "mini-files"
+          "none"
+        ];
+        default = "yazi";
+        description = "File manager plugin to use";
+      };
+
       commandlineUI = lib.mkOption {
         type = lib.types.enum [
           "noice"
