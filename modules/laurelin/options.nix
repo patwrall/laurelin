@@ -23,6 +23,24 @@
         description = "Picker engine to use";
       };
     };
+    performance = {
+
+      optimizer = lib.mkOption {
+        type = lib.types.enum [
+          "snacks"
+          "both"
+          "none"
+        ];
+        default = "snacks";
+        description = "Performance optimization strategy for large files";
+      };
+
+      optimizeEnable =
+        lib.mkEnableOption "nixvim performance optimizations (byte compilation, plugin combining)"
+        // {
+          default = true;
+        };
+    };
 
     editor = {
       searchPlugin = lib.mkOption {
