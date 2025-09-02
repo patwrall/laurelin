@@ -157,7 +157,7 @@
 
                     local success, node = pcall(vim.treesitter.get_node)
                     if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
-                      return { 'buffer', 'spell', 'dictionary' }
+                      return { 'buffer', 'spell' }
                     elseif vim.bo.filetype == 'gitcommit' then
                       local git_sources = { 'buffer', 'spell' }
                       ${lib.optionalString config.plugins.blink-cmp-git.enable "table.insert(git_sources, 'git')"}
