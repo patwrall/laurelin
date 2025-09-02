@@ -233,5 +233,12 @@
   plugins = {
     lsp-format.enable = !config.plugins.conform-nvim.enable && config.plugins.lsp.enable;
     lsp-signature.enable = config.plugins.lsp.enable;
+    which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>l";
+        group = "LSP";
+        icon = " ";
+      }
+    ];
   };
 }
