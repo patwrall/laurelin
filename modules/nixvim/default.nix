@@ -19,8 +19,10 @@ in
   [
     # keep-sorted start
     ../laurelin/options.nix
+    ./diagnostics.nix
     ./keymaps.nix
     ./lsp.nix
+    ./lua.nix
     ./options.nix
     ./performance.nix
     # keep-sorted end
