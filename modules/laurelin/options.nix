@@ -28,17 +28,6 @@
       };
     };
 
-    loading = {
-      strategy = lib.mkOption {
-        type = lib.types.enum [
-          "lazy"
-          "eager"
-        ];
-        default = "lazy";
-        description = "Plugin loading strategy";
-      };
-    };
-
     picker = {
       engine = lib.mkOption {
         type = lib.types.enum [
@@ -49,10 +38,11 @@
         description = "Picker engine to use";
       };
     };
-    performance = {
 
+    performance = {
       optimizer = lib.mkOption {
         type = lib.types.enum [
+          "faster"
           "snacks"
           "both"
           "none"
@@ -68,7 +58,38 @@
         };
     };
 
+    loading = {
+      strategy = lib.mkOption {
+        type = lib.types.enum [
+          "lazy"
+          "eager"
+        ];
+        default = "lazy";
+        description = "Plugin loading strategy";
+      };
+    };
+
+    tasks = {
+      runner = lib.mkOption {
+        type = lib.types.enum [
+          "overseer"
+          "none"
+        ];
+        default = "overseer";
+        description = "Task runner plugin to use";
+      };
+    };
+
     editor = {
+      motionPlugin = lib.mkOption {
+        type = lib.types.enum [
+          "flash"
+          "none"
+        ];
+        default = "flash";
+        description = "Motion/jump plugin to use";
+      };
+
       searchPlugin = lib.mkOption {
         type = lib.types.enum [
           "grug-far"
@@ -86,6 +107,15 @@
         ];
         default = "yazi";
         description = "File manager plugin to use";
+      };
+
+      debugUI = lib.mkOption {
+        type = lib.types.enum [
+          "dap-ui"
+          "none"
+        ];
+        default = "dap-ui";
+        description = "Debug adapter UI to use";
       };
 
       diffViewer = lib.mkOption {
@@ -113,6 +143,15 @@
         ];
         default = "noice";
         description = "Command line UI enhancement to use";
+      };
+
+      httpClient = lib.mkOption {
+        type = lib.types.enum [
+          "kulala"
+          "none"
+        ];
+        default = "kulala";
+        description = "HTTP client plugin to use";
       };
     };
   };
