@@ -19,5 +19,15 @@
       ];
       command = "setlocal spell spelllang=en_us";
     }
+    {
+      event = "FileType";
+      pattern = [
+        "tex"
+        "latex"
+        "markdown"
+        "typst"
+      ];
+      command = "setlocal wrap";
+    }
   ];
 }

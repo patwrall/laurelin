@@ -12,7 +12,6 @@
         "org"
         "quarto"
         "rmd"
-        "typst"
         "vimwiki"
       ];
     in
