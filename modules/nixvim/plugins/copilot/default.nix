@@ -56,6 +56,11 @@
 
     which-key.settings.spec = lib.optionals config.plugins.copilot-chat.enable [
       {
+        __unkeyed-1 = "<leader>a";
+        group = "AI";
+        icon = "";
+      }
+      {
         __unkeyed-1 = "<leader>aC";
         group = "Copilot";
         icon = "";
