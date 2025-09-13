@@ -10,7 +10,6 @@
         "md"
         "norg"
         "org"
-        "quarto"
         "rmd"
         "vimwiki"
       ];
