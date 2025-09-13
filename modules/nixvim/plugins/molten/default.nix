@@ -7,6 +7,12 @@
     molten = {
       enable = true;
       settings = { };
+
+      python3Dependencies = ps: with ps; [
+        pynvim
+        jupyter
+        ipykernel
+      ];
     };
 
     which-key.settings.spec = lib.optionals config.plugins.molten.enable [
