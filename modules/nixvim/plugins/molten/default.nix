@@ -7,7 +7,9 @@
     molten = {
       enable = true;
       settings = {
-        output.virtual_text = true;
+        virt_text_output = true;
+        output_virt_lines = false;
+        auto_open_output = false;
       };
 
       python3Dependencies = ps: with ps; [
