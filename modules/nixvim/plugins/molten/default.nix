@@ -6,7 +6,9 @@
   plugins = {
     molten = {
       enable = true;
-      settings = { };
+      settings = {
+        output.virtual_text = true;
+      };
 
       python3Dependencies = ps: with ps; [
         pynvim
@@ -43,30 +45,26 @@
     {
       mode = "v";
       key = "<leader>Me";
-      action = ":MoltenEvaluateVisual<cr>";
+      action = "<cmd>MoltenEvaluateVisual<cr>";
       options.desc = "Evaluate Selection";
     }
     {
-      key = "<leader>Ml"
-      ;
+      key = "<leader>Ml";
       action = "<cmd>MoltenEvaluateLine<cr>";
       options.desc = "Evaluate Line";
     }
     {
-      key = "<leader>MR"
-      ;
+      key = "<leader>MR";
       action = "<cmd>MoltenReEvaluate<cr>";
       options.desc = "Re-Evaluate Last";
     }
     {
-      key = "<leader>Mo"
-      ;
+      key = "<leader>Mo";
       action = "<cmd>MoltenToggleOutput<cr>";
       options.desc = "Toggle Output";
     }
     {
-      key = "<leader>Mc"
-      ;
+      key = "<leader>Mc";
       action = "<cmd>MoltenClose<cr>";
       options.desc = "Close Kernel";
     }
