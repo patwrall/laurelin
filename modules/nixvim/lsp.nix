@@ -23,7 +23,7 @@
 
     servers = {
       "*" = {
-        settings = {
+        config = {
           capabilities = {
             textDocument = {
               semanticTokens = {
@@ -118,7 +118,10 @@
       mode = "n";
       key = "gr";
       action.__raw = "vim.lsp.buf.references";
-      options = { desc = "References"; nowait = true; };
+      options = {
+        desc = "References";
+        nowait = true;
+      };
     }
     {
       mode = "n";
@@ -157,13 +160,19 @@
       options.desc = "Signature Help";
     }
     {
-      mode = [ "n" "v" ];
+      mode = [
+        "n"
+        "v"
+      ];
       key = "<leader>ca";
       action.__raw = "vim.lsp.buf.code_action";
       options.desc = "Code Action";
     }
     {
-      mode = [ "n" "v" ];
+      mode = [
+        "n"
+        "v"
+      ];
       key = "<leader>cc";
       action.__raw = "vim.lsp.codelens.run";
       options.desc = "Run Codelens";

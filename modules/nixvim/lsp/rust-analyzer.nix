@@ -8,7 +8,7 @@
     # installCargo = true;
     # installRustc = true;
 
-    settings.settings = {
+    config.settings = {
       diagnostics = {
         enable = true;
         # experimental.enable = true;
