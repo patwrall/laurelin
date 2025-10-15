@@ -1,10 +1,15 @@
 { config
 , lib
+, pkgs
 , ...
 }:
 {
   plugins.cord = {
     enable = true;
+
+    package = pkgs.vimPlugins.cord-nvim.overrideAttrs (_: {
+      nvimRequireCheck = false;
+    });
 
     lazyLoad.settings = {
       event = [
