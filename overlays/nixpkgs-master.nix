@@ -31,10 +31,14 @@ in
     neotest = luaPackages.neotest.override {
       doCheck = false;
     };
+
+    cord-nvim = luaPackages.cord-nvim.override {
+      doCheck = false;
+    };
   };
   vimPlugins = vimPlugins // {
-    #
-    # Specific package overlays need to go in here to not get ignored
-    #
+    cord-nvim = prev.vimPlugins.cord-nvim.overrideAttrs (_old: {
+      nvimRequireCheck = false;
+    });
   };
 }
