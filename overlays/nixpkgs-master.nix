@@ -9,7 +9,7 @@ let
     };
   };
   # my-packages = flake.packages.${prev.stdenv.system};
-  inherit (nixpkgs-master-packages) luaPackages vimPlugins;
+  inherit (nixpkgs-master-packages) luaPackages;
 in
 {
   inherit (nixpkgs-master-packages)
@@ -32,8 +32,9 @@ in
       doCheck = false;
     };
   };
-  vimPlugins = vimPlugins // {
-    cord-nvim = vimPlugins.cord-nvim.overrideAttrs (_old: {
+
+  vimPlugins = prev.vimPlugins // {
+    cord-nvim = prev.vimPlugins.cord-nvim.overrideAttrs (_old: {
       nvimRequireCheck = false;
     });
   };
