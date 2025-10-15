@@ -18,7 +18,6 @@
     blink-cmp-avante
     blink-cmp-conventional-commits
     blink-cmp-npm-nvim
-    blink-nerdfont-nvim
   ];
 
   plugins =
@@ -148,9 +147,7 @@
                     local common_sources = vim.deepcopy(base_sources)
 
                     ${lib.optionalString config.plugins.blink-copilot.enable "table.insert(common_sources, 'copilot')"}
-                    ${lib.optionalString config.plugins.blink-cmp-dictionary.enable "table.insert(common_sources, 'dictionary')"}
                     ${lib.optionalString config.plugins.blink-emoji.enable "table.insert(common_sources, 'emoji')"}
-                    ${lib.optionalString (lib.elem pkgs.vimPlugins.blink-nerdfont-nvim config.extraPlugins) "table.insert(common_sources, 'nerdfont')"}
                     ${lib.optionalString config.plugins.blink-cmp-spell.enable "table.insert(common_sources, 'spell')"}
                     ${lib.optionalString config.plugins.blink-ripgrep.enable "table.insert(common_sources, 'ripgrep')"}
                     ${lib.optionalString (lib.elem pkgs.vimPlugins.blink-cmp-npm-nvim config.extraPlugins) "if vim.fn.expand('%:t') == 'package.json' then table.insert(common_sources, 'npm') end"}
@@ -189,12 +186,6 @@
                         end
                       '';
                     };
-                dictionary = lib.mkIf config.plugins.blink-cmp-dictionary.enable {
-                  name = "Dict";
-                  module = "blink-cmp-dictionary";
-                  min_keyword_length = 3;
-                  max_items = 10;
-                };
                 emoji = lib.mkIf config.plugins.blink-emoji.enable {
                   name = "Emoji";
                   module = "blink-emoji";
@@ -231,14 +222,6 @@
                   module = "blink-cmp-spell";
                   score_offset = 1;
                 };
-                nerdfont = lib.mkIf (lib.elem pkgs.vimPlugins.blink-nerdfont-nvim config.extraPlugins) {
-                  module = "blink-nerdfont";
-                  name = "Nerd Fonts";
-                  score_offset = 15;
-                  opts = {
-                    insert = true;
-                  };
-                };
                 npm = lib.mkIf (lib.elem pkgs.vimPlugins.blink-cmp-npm-nvim config.extraPlugins) {
                   name = "npm";
                   module = "blink-cmp-npm";
@@ -259,12 +242,10 @@
           };
         };
 
-        # blink-cmp-dictionary = mkBlinkPlugin { };
         blink-cmp-git = mkBlinkPlugin { };
         blink-cmp-spell = mkBlinkPlugin { };
         blink-copilot = mkBlinkPlugin {
-          enable =
-            config.laurelin.ai.provider == "copilot" && config.laurelin.completion.engine == "blink";
+          enable = config.laurelin.ai.provider == "copilot" && config.laurelin.completion.engine == "blink";
         };
         blink-emoji = mkBlinkPlugin { };
         blink-ripgrep = mkBlinkPlugin { };
