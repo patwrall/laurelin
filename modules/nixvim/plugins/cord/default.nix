@@ -1,30 +1,26 @@
-{ config
-, lib
-, pkgs
+{ pkgs
 , ...
 }:
 {
-  plugins.cord = {
-    enable = true;
+  plugins.cord.enable = false;
 
-    package = pkgs.vimPlugins.cord-nvim.overrideAttrs (_: {
+  extraPlugins = with pkgs.vimPlugins; [
+    (cord-nvim.overrideAttrs (_: {
       nvimRequireCheck = false;
-    });
+      doCheck = false;
+      doInstallCheck = false;
+    }))
+  ];
 
-    lazyLoad.settings = {
-      event = [
-        "DeferredUIEnter"
-      ];
-    };
-
-    settings = {
+  extraConfigLua = ''
+    require('cord').setup({
       idle = {
-        enabled = false;
-      };
-    };
-  };
+        enabled = false,
+      },
+    })
+  '';
 
-  keymaps = lib.optionals config.plugins.cord.enable [
+  keymaps = [
     {
       mode = "n";
       key = "<leader>ude";
