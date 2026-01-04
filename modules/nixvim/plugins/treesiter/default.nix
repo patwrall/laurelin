@@ -8,7 +8,9 @@
     treesitter = {
       enable = true;
 
-      folding = true;
+      folding = {
+        enable = true;
+      };
       grammarPackages = config.plugins.treesitter.package.passthru.allGrammars ++ [
         self.packages.${system}.tree-sitter-norg-meta
       ];
@@ -77,26 +79,6 @@
         min_window_height = 40;
         multiwindow = true;
         separator = "-";
-      };
-    };
-
-    treesitter-refactor = {
-      inherit (config.plugins.treesitter) enable;
-
-      highlightDefinitions = {
-        enable = true;
-        clearOnCursorMove = true;
-      };
-      smartRename = {
-        enable = true;
-        keymaps = {
-          # NOTE: default is "grr"
-          # Changed from grR to gR to avoid conflict with gr (References)
-          smartRename = "gR";
-        };
-      };
-      navigation = {
-        enable = true;
       };
     };
   };

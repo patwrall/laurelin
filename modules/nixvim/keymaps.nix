@@ -1,5 +1,4 @@
-{ helpers
-, lib
+{ lib
 , ...
 }:
 {
@@ -20,7 +19,8 @@
 
   keymaps =
     let
-      mkModeMaps = mode: maps:
+      mkModeMaps =
+        mode: maps:
         lib.mapAttrsToList
           (key: attrs: {
             inherit mode key;
@@ -29,18 +29,22 @@
           })
           maps;
 
-      mkMultiModeMaps = multiMaps:
-        lib.flatten (lib.mapAttrsToList
-          (key: attrs:
-            map
-              (mode: {
-                inherit mode key;
-                inherit (attrs) action;
-                options = attrs.options or { };
-              })
-              attrs.modes
-          )
-          multiMaps);
+      mkMultiModeMaps =
+        multiMaps:
+        lib.flatten (
+          lib.mapAttrsToList
+            (
+              key: attrs:
+              map
+                (mode: {
+                  inherit mode key;
+                  inherit (attrs) action;
+                  options = attrs.options or { };
+                })
+                attrs.modes
+            )
+            multiMaps
+        );
 
       maps = {
         normal = {
@@ -136,11 +140,17 @@
           # https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
           "n" = {
             action = "'Nn'[v:searchforward].'zv'";
-            options = { desc = "Next Search Result"; expr = true; };
+            options = {
+              desc = "Next Search Result";
+              expr = true;
+            };
           };
           "N" = {
             action = "'nN'[v:searchforward].'zv'";
-            options = { desc = "Prev Search Result"; expr = true; };
+            options = {
+              desc = "Prev Search Result";
+              expr = true;
+            };
           };
           # keywordprg
           "<leader>K" = {
@@ -300,11 +310,17 @@
           # https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
           "n" = {
             action = "'Nn'[v:searchforward]";
-            options = { desc = "Next Search Result"; expr = true; };
+            options = {
+              desc = "Next Search Result";
+              expr = true;
+            };
           };
           "N" = {
             action = "'nN'[v:searchforward]";
-            options = { desc = "Prev Search Result"; expr = true; };
+            options = {
+              desc = "Prev Search Result";
+              expr = true;
+            };
           };
           # Better indenting
           "<" = {
@@ -339,52 +355,87 @@
           # https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
           "n" = {
             action = "'Nn'[v:searchforward]";
-            options = { desc = "Next Search Result"; expr = true; };
+            options = {
+              desc = "Next Search Result";
+              expr = true;
+            };
           };
           "N" = {
             action = "'nN'[v:searchforward]";
-            options = { desc = "Prev Search Result"; expr = true; };
+            options = {
+              desc = "Prev Search Result";
+              expr = true;
+            };
           };
         };
         multi = {
           "j" = {
-            modes = [ "n" "x" ];
+            modes = [
+              "n"
+              "x"
+            ];
             action = "v:count == 0 ? 'gj' : 'j'";
-            options = { desc = "Down"; expr = true; };
+            options = {
+              desc = "Down";
+              expr = true;
+            };
           };
           "<Down>" = {
-            modes = [ "n" "x" ];
+            modes = [
+              "n"
+              "x"
+            ];
             action = "v:count == 0 ? 'gj' : 'j'";
-            options = { desc = "Down"; expr = true; };
+            options = {
+              desc = "Down";
+              expr = true;
+            };
           };
           "k" = {
-            modes = [ "n" "x" ];
+            modes = [
+              "n"
+              "x"
+            ];
             action = "v:count == 0 ? 'gk' : 'k'";
-            options = { desc = "Up"; expr = true; };
+            options = {
+              desc = "Up";
+              expr = true;
+            };
           };
           "<Up>" = {
-            modes = [ "n" "x" ];
+            modes = [
+              "n"
+              "x"
+            ];
             action = "v:count == 0 ? 'gk' : 'k'";
-            options = { desc = "Up"; expr = true; };
+            options = {
+              desc = "Up";
+              expr = true;
+            };
           };
           # Save file
           "<C-s>" = {
-            modes = [ "i" "x" "n" "s" ];
+            modes = [
+              "i"
+              "x"
+              "n"
+              "s"
+            ];
             action = "<cmd>w<cr><esc>";
             options.desc = "Save File";
           };
         };
       };
     in
-    helpers.keymaps.mkKeymaps
+    lib.nixvim.keymaps.mkKeymaps
       {
         options.silent = true;
       }
       (
-        (mkModeMaps "n" maps.normal) ++
-        (mkModeMaps "v" maps.visual) ++
-        (mkModeMaps "i" maps.insert) ++
-        (mkModeMaps "o" maps.operator-pending) ++
-        (mkMultiModeMaps maps.multi)
+        (mkModeMaps "n" maps.normal)
+        ++ (mkModeMaps "v" maps.visual)
+        ++ (mkModeMaps "i" maps.insert)
+        ++ (mkModeMaps "o" maps.operator-pending)
+        ++ (mkMultiModeMaps maps.multi)
       );
 }

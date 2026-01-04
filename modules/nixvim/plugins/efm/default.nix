@@ -12,7 +12,7 @@
       };
     };
 
-    efmls-configs = {
+    efmls-configs.languages = {
       enable = false;
 
       setup = {

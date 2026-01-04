@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -10,14 +11,17 @@
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {
-        nuschtosSearch.follows = "";
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
       };
     };
     pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    snacks-nvim = {
+      url = "github:folke/snacks.nvim";
+      flake = false;
+    };
 
-    nixpkgs-master.url = "github:nixos/nixpkgs";
   };
 
   nixConfig = {

@@ -9,7 +9,7 @@ let
     };
   };
   # my-packages = flake.packages.${prev.stdenv.system};
-  inherit (nixpkgs-master-packages) luaPackages;
+  inherit (nixpkgs-master-packages) luaPackages vimPlugins;
 in
 {
   inherit (nixpkgs-master-packages)
@@ -17,9 +17,6 @@ in
     ;
 
   luaPackages = luaPackages // {
-    #
-    # Specific package overlays need to go in here to not get ignored
-    #
     fzf-lua = luaPackages.fzf-lua.override {
       doCheck = false;
     };
@@ -33,9 +30,28 @@ in
     };
   };
 
-  vimPlugins = prev.vimPlugins // {
-    cord-nvim = prev.vimPlugins.cord-nvim.overrideAttrs (_old: {
-      nvimRequireCheck = false;
-    });
-  };
+  vimPlugins = vimPlugins.extend (
+    _self: super: {
+      #
+      # Specific package overlays need to go in here to not get ignored
+      #
+      fzf-lua = super.fzf-lua.overrideAttrs {
+        doCheck = false;
+      };
+
+      grug-far-nvim = super.grug-far-nvim.overrideAttrs {
+        doCheck = false;
+      };
+
+      neotest = super.neotest.overrideAttrs {
+        doCheck = false;
+      };
+
+      snacks-nvim = super.snacks-nvim.overrideAttrs (_old: {
+        postInstall = ''
+          rm -rf $out/queries
+        '';
+      });
+    }
+  );
 }
