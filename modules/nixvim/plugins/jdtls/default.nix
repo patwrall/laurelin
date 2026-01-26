@@ -40,9 +40,7 @@
         cmd = [
           "${lib.getExe pkgs.jdt-language-server}"
           "-data"
-          ''vim.fn.stdpath 'cache' .. '/jdtls/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')''
-          "-configuration"
-          ''vim.fn.stdpath 'cache' .. "/jdtls/config"''
+          { __raw = "vim.fn.stdpath('cache') .. '/jdtls/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')"; }
         ];
 
         init_options = {
