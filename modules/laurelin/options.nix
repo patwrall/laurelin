@@ -1,14 +1,17 @@
 { lib
 , ...
-}: {
+}:
+{
   options.laurelin = {
     ai = {
       provider = lib.mkOption {
         type = lib.types.enum [
+          "avante"
           "copilot"
+          "claudecode"
           "none"
         ];
-        default = "copilot";
+        default = "claudecode";
         description = "AI completion provider to use";
       };
 
