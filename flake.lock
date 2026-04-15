@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "esp32-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774632278,
+        "narHash": "sha256-1538ASdLDfFkB1nFQ2zD8LNoprevFe913AWYe0STzH4=",
+        "owner": "Aietes",
+        "repo": "esp32.nvim",
+        "rev": "5b17ca919f509882cd4e089cf16cb5ccf6562c81",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aietes",
+        "repo": "esp32.nvim",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -165,6 +181,7 @@
     },
     "root": {
       "inputs": {
+        "esp32-nvim": "esp32-nvim",
         "flake-parts": "flake-parts",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",

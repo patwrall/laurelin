@@ -52,6 +52,12 @@ in
           rm -rf $out/queries
         '';
       });
+
+      esp32-nvim = prev.vimUtils.buildVimPlugin {
+        pname = "esp32.nvim";
+        version = "unstable";
+        src = flake.inputs.esp32-nvim;
+      };
     }
   );
 }

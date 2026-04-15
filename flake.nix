@@ -22,6 +22,11 @@
       flake = false;
     };
 
+    esp32-nvim = {
+      url = "github:Aietes/esp32.nvim";
+      flake = false;
+    };
+
   };
 
   nixConfig = {
