@@ -29,7 +29,7 @@
             function (buffer)
                local ft, bt = vim.bo[buffer].ft, vim.bo[buffer].bt;
 
-               if ft == "snacks_picker_preview" then
+               if ft:match("^snacks_") then
                     return false;
                elseif bt == "nofile" and (ft == "Avante" or ft == "codecompanion") then
                     return true;
