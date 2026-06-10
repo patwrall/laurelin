@@ -29,7 +29,9 @@
             function (buffer)
                local ft, bt = vim.bo[buffer].ft, vim.bo[buffer].bt;
 
-               if bt == "nofile" and (ft == "Avante" or ft == "codecompanion") then
+               if ft == "snacks_picker_preview" then
+                    return false;
+               elseif bt == "nofile" and (ft == "Avante" or ft == "codecompanion") then
                     return true;
                elseif bt == "nofile" then
                     return false;
