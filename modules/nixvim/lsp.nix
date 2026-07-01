@@ -81,6 +81,14 @@
     };
   };
 
+  extraConfigLuaPost = ''
+    -- Silence "No information available" from LSP hover when docs are empty
+    vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+      if not (result and result.contents) then return end
+      vim.lsp.handlers.hover(err, result, ctx, config)
+    end
+  '';
+
   keymapsOnEvents.LspAttach = [
     (lib.mkIf (!config.plugins.conform-nvim.enable) {
       action.__raw = ''vim.lsp.buf.format'';

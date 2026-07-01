@@ -61,12 +61,6 @@
           };
         };
 
-        messages = {
-          view = "mini";
-          view_error = "mini";
-          view_warn = "mini";
-        };
-
         lsp = {
           override = {
             "vim.lsp.util.convert_input_to_markdown_lines" = true;
@@ -74,7 +68,8 @@
             "cmp.entry.get_documentation" = true;
           };
 
-          progress.enabled = true;
+          # snacks.notifier handles progress; noice does cmdline only
+          progress.enabled = false;
           signature.enabled = !config.plugins.lsp-signature.enable;
         };
 
@@ -92,16 +87,38 @@
 
         routes = [
           {
-            filter = {
-              event = "msg_show";
-              kind = "search_count";
-            };
-            opts = {
-              skip = true;
-            };
+            filter = { event = "msg_show"; kind = "search_count"; };
+            opts.skip = true;
           }
           {
-            # skip progress messages from noisy servers
+            filter = { event = "msg_show"; find = "written"; };
+            opts.skip = true;
+          }
+          {
+            filter = {
+              event = "msg_show";
+              any = [
+                { find = "search hit BOTTOM"; }
+                { find = "search hit TOP"; }
+              ];
+            };
+            opts.skip = true;
+          }
+          {
+            filter = { event = "msg_show"; find = "Pattern not found"; };
+            opts.skip = true;
+          }
+          {
+            filter = { event = "notify"; find = "No information available"; };
+            opts.skip = true;
+          }
+          {
+            filter = { event = "msg_show"; min_height = 20; };
+            view = "split";
+            opts.enter = true;
+          }
+          {
+            # skip progress messages from noisy LSP servers
             filter = {
               event = "lsp";
               kind = "progress";
@@ -109,18 +126,13 @@
                 function(message)
                   local client = vim.tbl_get(message.opts, 'progress', 'client')
                   local servers = { 'jdtls' }
-
-                  for index, value in ipairs(servers) do
-                      if value == client then
-                          return true
-                      end
+                  for _, value in ipairs(servers) do
+                    if value == client then return true end
                   end
                 end
               '';
             };
-            opts = {
-              skip = true;
-            };
+            opts.skip = true;
           }
         ];
 
