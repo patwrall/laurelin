@@ -23,8 +23,6 @@
             on = true;
             features_disabled = [
               "filetype"
-              "illuminate"
-              "indent_blankline"
               "lsp"
               "matchparen"
               "syntax"
@@ -60,8 +58,6 @@
           fastmacro = {
             on = true;
             features_disabled = [
-              "illuminate"
-              "indent_blankline"
               "lualine"
             ]
             ++ lib.optionals config.plugins.bufferline.enable [ "bufferline" ]
@@ -341,22 +337,6 @@
       }
       {
         mode = "n";
-        key = "<leader>uxi";
-        action = "<cmd>FasterDisableIlluminate<CR>";
-        options = {
-          desc = "Faster: Disable Illuminate";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>uxI";
-        action = "<cmd>FasterEnableIlluminate<CR>";
-        options = {
-          desc = "Faster: Enable Illuminate";
-        };
-      }
-      {
-        mode = "n";
         key = "<leader>uxs";
         action = "<cmd>FasterDisableSyntax<CR>";
         options = {
@@ -385,22 +365,6 @@
         action = "<cmd>FasterEnableMatchparen<CR>";
         options = {
           desc = "Faster: Enable Matchparen";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>uxn";
-        action = "<cmd>FasterDisableIndentblankline<CR>";
-        options = {
-          desc = "Faster: Disable Indent Blankline";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>uxN";
-        action = "<cmd>FasterEnableIndentblankline<CR>";
-        options = {
-          desc = "Faster: Enable Indent Blankline";
         };
       }
       {

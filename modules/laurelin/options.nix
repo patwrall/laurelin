@@ -133,6 +133,12 @@
       # Specialized tooling — disabled by default
       jdtls = lib.mkEnableOption "nvim-jdtls Java LSP plugin (enables jdtls LSP server via plugin instead of lspconfig)";
 
+      cCompiler = lib.mkOption {
+        type = lib.types.nullOr (lib.types.enum [ "clangd" "ccls" ]);
+        default = "clangd";
+        description = "C/C++ LSP server to use. null disables both.";
+      };
+
       typescriptTools = lib.mkEnableOption "typescript-tools alternative TS LSP (overrides ts_ls from lspconfig)";
 
       typst = lib.mkEnableOption "typst writing tools (typst-vim + typst-preview)";

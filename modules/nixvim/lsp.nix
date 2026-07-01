@@ -49,17 +49,6 @@
       };
       fish_lsp.enable = true;
       fsautocomplete.enable = true;
-      fsharp_language_server = {
-        enable = false;
-        # TODO: package FSharpLanguageServer
-        # cmd = [ "${pkgs.fsharp-language-server}/FSharpLanguageServer.dll" ];
-      };
-      # FIXME: broken upstream
-      gdscript = {
-        enable = true;
-        package = pkgs.gdtoolkit_4;
-      };
-
       gopls.enable = true;
       html.enable = true;
       java_language_server.enable = !config.laurelin.editor.jdtls;
@@ -118,36 +107,12 @@
     }
     {
       mode = "n";
-      key = "gd";
-      action.__raw = "vim.lsp.buf.definition";
-      options.desc = "Goto Definition";
-    }
-    {
-      mode = "n";
       key = "gr";
       action.__raw = "vim.lsp.buf.references";
       options = {
         desc = "References";
         nowait = true;
       };
-    }
-    {
-      mode = "n";
-      key = "gI";
-      action.__raw = "vim.lsp.buf.implementation";
-      options.desc = "Goto Implementation";
-    }
-    {
-      mode = "n";
-      key = "gy";
-      action.__raw = "vim.lsp.buf.type_definition";
-      options.desc = "Goto T[y]pe Definition";
-    }
-    {
-      mode = "n";
-      key = "gD";
-      action.__raw = "vim.lsp.buf.declaration";
-      options.desc = "Goto Declaration";
     }
     {
       mode = "n";
@@ -190,12 +155,6 @@
       key = "<leader>cC";
       action.__raw = "vim.lsp.codelens.refresh";
       options.desc = "Refresh & Display Codelens";
-    }
-    {
-      mode = "n";
-      key = "<leader>cr";
-      action.__raw = "vim.lsp.buf.rename";
-      options.desc = "Rename";
     }
   ]
   ++ lib.optionals (!config.plugins.glance.enable) [

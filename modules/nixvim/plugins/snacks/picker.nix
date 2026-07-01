@@ -11,7 +11,6 @@
   config = lib.mkIf (config.laurelin.picker.tool == "snacks") {
     extraPlugins = with pkgs.vimPlugins; [
       snacks-nvim
-      lazy-nvim
     ];
 
     extraConfigLuaPre = # Lua

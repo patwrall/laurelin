@@ -23,12 +23,9 @@
     loaded_perl_provider = 0;
     loaded_python_provider = 0;
 
-    disable_diagnostics = false;
     disable_autoformat = false;
-    spell_enabled = true;
     colorizing_enabled = false;
-    first_buffer_opened = false;
-    whitespace_character_enabled = false;
+    whitespace_characters_enabled = false;
   };
 
   opts = {

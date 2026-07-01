@@ -3,24 +3,10 @@
 , ...
 }:
 {
-  plugins = {
-    mini = {
-      enable = true;
+  plugins.mini.modules = lib.mkIf config.laurelin.editor.telescope { fuzzy = { }; };
 
-      modules = {
-        fuzzy = { };
-      };
-    };
-
-    telescope = {
-      settings = {
-        defaults =
-          lib.mkIf (config.plugins.mini.enable && lib.hasAttr "fuzzy" config.plugins.mini.modules)
-            {
-              file_sorter.__raw = ''require('mini.fuzzy').get_telescope_sorter'';
-              generic_sorter.__raw = ''require('mini.fuzzy').get_telescope_sorter'';
-            };
-      };
-    };
+  plugins.telescope.settings.defaults = lib.mkIf config.laurelin.editor.telescope {
+    file_sorter.__raw = ''require('mini.fuzzy').get_telescope_sorter'';
+    generic_sorter.__raw = ''require('mini.fuzzy').get_telescope_sorter'';
   };
 }

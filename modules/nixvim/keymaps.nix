@@ -104,19 +104,11 @@
             options.desc = "Move Up";
           };
           # Buffers
-          "<S-h>" = {
+          "[b" = {
             action = "<cmd>bprevious<cr>";
             options.desc = "Prev Buffer";
           };
-          "<S-l>" = {
-            action = "<cmd>bnext<cr>";
-            options.desc = "Next Buffer";
-          };
-          "<[b>" = {
-            action = "<cmd>bprevious<cr>";
-            options.desc = "Prev Buffer";
-          };
-          "<]b>" = {
+          "]b" = {
             action = "<cmd>bnext<cr>";
             options.desc = "Next Buffer";
           };
@@ -167,21 +159,9 @@
             options.desc = "Add Comment Above";
           };
           # New file
-          "<leader>fn" = {
+          "<leader>bN" = {
             action = "<cmd>enew<cr>";
             options.desc = "New File";
-          };
-          # location list
-          "<leader>xl" = {
-            action.__raw = ''
-              function()
-                local success, err = pcall(vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 and vim.cmd.lclose or vim.cmd.lopen)
-                if not success and err then
-                  vim.notify(err, vim.log.levels.ERROR)
-                end
-              end
-            '';
-            options.desc = "Location List";
           };
           # quickfix list
           "<leader>xq" = {

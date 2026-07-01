@@ -26,23 +26,5 @@ lib.mkIf (config.laurelin.picker.tool == "snacks") {
       action.__raw = "function() require('snacks').explorer() end";
       options.desc = "Explorer (cwd)";
     }
-    {
-      mode = "n";
-      key = "<leader>e";
-      action = "<leader>fe";
-      options = {
-        desc = "Explorer (root dir)";
-        remap = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>E";
-      action = "<leader>fE";
-      options = {
-        desc = "Explorer (cwd)";
-        remap = true;
-      };
-    }
   ];
 }

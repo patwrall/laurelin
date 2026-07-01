@@ -1,10 +1,11 @@
-{ lib
+{ config
+, lib
 , pkgs
 , ...
 }:
 {
   lsp.servers.clangd = {
-    enable = true;
+    enable = config.laurelin.editor.cCompiler == "clangd";
 
     config = {
       settings.init_options = {

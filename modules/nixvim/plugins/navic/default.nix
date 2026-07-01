@@ -10,7 +10,7 @@
         auto_attach = true;
         preference = [
           "clangd"
-          "tsserver"
+          "ts_ls"
         ];
       };
     };
