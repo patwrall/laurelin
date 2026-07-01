@@ -1,6 +1,13 @@
 { config, lib, ... }:
 {
-  plugins.snacks.settings.terminal.enabled = true;
+  plugins.snacks.settings.terminal = {
+    enabled = true;
+    win = {
+      style = "terminal";
+      wo.winhighlight = "Normal:Normal,NormalNC:Normal,SignColumn:Normal";
+    };
+    shell.__raw = "vim.fn.exepath('fish') ~= '' and vim.fn.exepath('fish') or vim.fn.getenv('SHELL')";
+  };
 
   keymaps = lib.mkIf config.plugins.snacks.enable [
     {

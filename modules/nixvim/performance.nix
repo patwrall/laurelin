@@ -19,6 +19,7 @@
         "firenvim"
         "neotest"
         "nvim-treesitter"
+        friendly-snippets
         mini-nvim
         overseer-nvim
         vs-tasks-nvim
