@@ -44,5 +44,6 @@ luac.out
 result
 .ccls-cache
 .pre-commit-config.yaml
+target/
 
 **/.claude/set
