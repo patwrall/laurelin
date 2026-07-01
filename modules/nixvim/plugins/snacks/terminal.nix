@@ -22,6 +22,19 @@
       action = "<cmd>lua Snacks.terminal.toggle()<CR>";
       options.desc = "Toggle Terminal";
     }
+    # Inside tmux, kitty protocol is inactive so 0x1f arrives as <C-_> not <C-/>
+    {
+      mode = "n";
+      key = "<C-_>";
+      action = "<cmd>lua Snacks.terminal.toggle()<CR>";
+      options.desc = "Toggle Terminal";
+    }
+    {
+      mode = "t";
+      key = "<C-_>";
+      action = "<cmd>lua Snacks.terminal.toggle()<CR>";
+      options.desc = "Toggle Terminal";
+    }
     {
       mode = "n";
       key = "<leader>ueT";

@@ -1,0 +1,3 @@
+[default.extend-words]
+# vim leader key notation — not English words
+ue = "ue"
