@@ -17,20 +17,20 @@
 
   plugins = {
     copilot-lua = {
-      enable = config.laurelin.ai.provider == "copilot";
+      enable = builtins.elem "copilot" config.laurelin.ai.plugins;
 
       lazyLoad.settings.event = [ "InsertEnter" ];
 
       settings = {
-        panel.enabled = config.laurelin.completion.engine != "blink";
-        suggestion.enabled = config.laurelin.completion.engine != "blink";
+        panel.enabled = config.laurelin.completion.tool != "blink";
+        suggestion.enabled = config.laurelin.completion.tool != "blink";
         copilot_node_command = lib.getExe pkgs.nodejs;
         lsp_binary = lib.getExe pkgs.copilot-language-server;
       };
     };
 
     copilot-chat = {
-      enable = config.laurelin.ai.provider == "copilot" && config.laurelin.ai.chatEnable;
+      enable = builtins.elem "copilot" config.laurelin.ai.plugins && config.laurelin.ai.chatEnable;
 
       lazyLoad.settings.cmd = [
         "CopilotChat"

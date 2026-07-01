@@ -1,11 +1,12 @@
-{ lib
+{ config
+, lib
 , pkgs
 , ...
 }:
 {
   plugins = {
     jdtls = {
-      enable = true;
+      enable = config.laurelin.editor.jdtls;
 
       lazyLoad.settings.ft = "java";
 

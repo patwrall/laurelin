@@ -38,7 +38,7 @@
     lib.mkMerge [
       {
         blink-cmp = {
-          enable = config.laurelin.completion.engine == "blink";
+          enable = config.laurelin.completion.tool == "blink";
 
           lazyLoad.settings.event = [
             "InsertEnter"
@@ -245,7 +245,7 @@
         blink-cmp-git = mkBlinkPlugin { };
         blink-cmp-spell = mkBlinkPlugin { };
         blink-copilot = mkBlinkPlugin {
-          enable = config.laurelin.ai.provider == "copilot" && config.laurelin.completion.engine == "blink";
+          enable = builtins.elem "copilot" config.laurelin.ai.plugins && config.laurelin.completion.tool == "blink";
         };
         blink-emoji = mkBlinkPlugin { };
         blink-ripgrep = mkBlinkPlugin { };

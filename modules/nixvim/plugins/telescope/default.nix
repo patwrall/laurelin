@@ -1,7 +1,8 @@
+{ config, ... }:
 {
   plugins = {
     telescope = {
-      enable = true;
+      enable = config.laurelin.editor.telescope;
       lazyLoad.settings.cmd = [
         "Telescope"
       ];

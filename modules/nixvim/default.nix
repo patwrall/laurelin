@@ -1,5 +1,6 @@
 { lib
 , self
+, inputs
 , ...
 }:
 let
@@ -31,6 +32,13 @@ in
 
   nixpkgs = {
     overlays = lib.attrValues self.overlays;
-    config.allowUnfree = true;
+    source = inputs.nixpkgs;
+    config = {
+      allowUnfree = true;
+      # FIXME: pnpm 9 unsafe ignore for stylelint-lsp
+      permittedInsecurePackages = [
+        "pnpm-9.15.9"
+      ];
+    };
   };
 }

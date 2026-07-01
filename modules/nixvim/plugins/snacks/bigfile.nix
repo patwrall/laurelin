@@ -24,7 +24,8 @@
               -- Disable line numbers and relative line numbers
               vim.cmd("setlocal nonumber norelativenumber")
 
-              -- Syntax highlighting
+              -- Disable treesitter and syntax highlighting for large files
+              vim.treesitter.stop(ctx.buf)
               vim.schedule(function()
                 vim.bo[ctx.buf].syntax = ctx.ft
               end)

@@ -62,10 +62,10 @@
 
       gopls.enable = true;
       html.enable = true;
-      java_language_server.enable = !config.plugins.jdtls.enable;
-      jdtls.enable = !config.plugins.jdtls.enable;
+      java_language_server.enable = !config.laurelin.editor.jdtls;
+      jdtls.enable = !config.laurelin.editor.jdtls;
       jsonls.enable = true;
-      kulala_ls.enable = true;
+      kulala_ls.enable = config.laurelin.editor.httpClient == "kulala";
       marksman.enable = true;
       nushell.enable = true;
       pyright.enable = true;
@@ -76,7 +76,7 @@
       stylelint_lsp.enable = true;
       tailwindcss.enable = true;
       taplo.enable = true;
-      ts_ls.enable = !config.plugins.typescript-tools.enable;
+      ts_ls.enable = !config.laurelin.editor.typescriptTools;
       yamlls.enable = true;
     };
   };

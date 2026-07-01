@@ -1,7 +1,7 @@
-_:
+{ config, ... }:
 {
   plugins.quarto = {
-    enable = true;
+    enable = config.laurelin.science.enable;
 
     lazyLoad.settings = {
       event = [ "DeferredUIEnter" ];

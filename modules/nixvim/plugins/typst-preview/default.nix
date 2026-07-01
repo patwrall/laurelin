@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
   plugins.typst-preview = {
-    enable = true;
+    enable = config.laurelin.editor.typst;
 
     # Lazy loading configuration
     lazyLoad.settings = {

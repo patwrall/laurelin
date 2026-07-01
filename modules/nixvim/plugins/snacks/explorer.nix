@@ -2,7 +2,7 @@
 , lib
 , ...
 }:
-lib.mkIf (config.laurelin.picker.engine == "snacks") {
+lib.mkIf (config.laurelin.picker.tool == "snacks") {
   plugins.snacks.settings.explorer = {
     win = {
       width = 30;

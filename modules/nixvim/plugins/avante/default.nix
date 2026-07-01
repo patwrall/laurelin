@@ -7,7 +7,7 @@
     avante = {
       # avante.nvim documentation
       # See: https://github.com/yetone/avante.nvim
-      enable = config.laurelin.ai.provider == "avante";
+      enable = builtins.elem "avante" config.laurelin.ai.plugins;
 
       lazyLoad.settings.event = [ "DeferredUIEnter" ];
 

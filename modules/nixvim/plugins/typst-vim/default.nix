@@ -1,7 +1,7 @@
-_:
+{ config, ... }:
 {
   plugins.typst-vim = {
-    enable = true;
+    enable = config.laurelin.editor.typst;
 
     settings = { };
   };

@@ -38,6 +38,10 @@
           allowUnfree = true;
           # FIXME: breaks git-hooks-nix installation
           # allowAliases = false;
+          # FIXME: pnpm 9 unsafe ignore for stylelint-lsp
+          permittedInsecurePackages = [
+            "pnpm-9.15.9"
+          ];
         };
       };
 

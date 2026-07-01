@@ -2,7 +2,7 @@
 {
   plugins = {
     flash = {
-      enable = config.laurelin.editor.motionPlugin == "flash";
+      enable = config.laurelin.editor.motion == "flash";
 
       lazyLoad.settings.event = "DeferredUIEnter";
 

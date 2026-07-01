@@ -27,7 +27,7 @@
         basics = { };
         bracketed = { };
         icons = { };
-        snippets = lib.mkIf (config.laurelin.editor.snippetEngine == "mini-snippets") {
+        snippets = lib.mkIf (config.laurelin.editor.snippet == "mini-snippets") {
           snippets = {
             __unkeyed-1.__raw =
               lib.mkIf config.plugins.friendly-snippets.enable # Lua

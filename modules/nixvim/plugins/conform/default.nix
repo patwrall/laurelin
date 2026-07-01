@@ -11,6 +11,7 @@
       autoInstall = {
         enable = true;
         overrides.swift_format = null;
+        overrides.stylelint = null;
       };
 
       lazyLoad.settings = {

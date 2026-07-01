@@ -8,7 +8,7 @@
     ./picker/lsp.nix
   ];
 
-  config = lib.mkIf (config.laurelin.picker.engine == "snacks") {
+  config = lib.mkIf (config.laurelin.picker.tool == "snacks") {
     extraPlugins = with pkgs.vimPlugins; [
       snacks-nvim
       lazy-nvim

@@ -2,7 +2,7 @@
 {
   plugins = {
     otter = {
-      inherit (config.plugins.treesitter) enable;
+      enable = config.plugins.treesitter.enable && config.laurelin.science.enable;
       autoActivate = false;
 
       lazyLoad.settings.event = "DeferredUIEnter";

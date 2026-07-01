@@ -18,7 +18,7 @@
 
   plugins = {
     grug-far = {
-      enable = config.laurelin.editor.searchPlugin == "grug-far";
+      enable = config.laurelin.editor.search == "grug-far";
       lazyLoad = {
         settings = {
           cmd = "GrugFar";

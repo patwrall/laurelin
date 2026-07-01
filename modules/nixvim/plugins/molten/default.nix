@@ -5,7 +5,7 @@
 {
   plugins = {
     molten = {
-      enable = true;
+      enable = config.laurelin.science.enable;
       settings = {
         virt_text_output = true;
         output_virt_lines = false;

@@ -1,10 +1,11 @@
-{ pkgs
+{ config
+, pkgs
 , ...
 }:
 {
   plugins = {
     typescript-tools = {
-      enable = true;
+      enable = config.laurelin.editor.typescriptTools;
 
       lazyLoad.settings.ft = [
         "typescript"
