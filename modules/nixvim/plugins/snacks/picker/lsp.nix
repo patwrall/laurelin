@@ -44,7 +44,7 @@
           key = "gI";
           action = ''<cmd>lua Snacks.picker.lsp_implementations()<cr>'';
           options = {
-            desc = "soto Implementation";
+            desc = "Goto Implementation";
           };
         }
         {
