@@ -1,7 +1,7 @@
 _:
 {
   plugins.smartcolumn = {
-    enable = true;
+    enable = false;
 
     lazyLoad.settings.event = [ "BufReadPost" "BufNewFile" ];
 
